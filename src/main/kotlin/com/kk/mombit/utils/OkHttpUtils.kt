@@ -21,7 +21,7 @@ object OkHttpUtils {
         client: OkHttpClient,
         request: Request,
         s: String = ""
-    ): String? {
+    ): Pair<Int, String?> {
         val call = makeAsyncRequestRaw(client, request)
         val string = withContext(Dispatchers.Default) { call.body!!.string() }
         call.body?.close()
@@ -32,7 +32,7 @@ object OkHttpUtils {
             args = arrayOf(request.url.encodedPath, s)
         )
 
-        return if (call.code == 200) string else null
+        return call.code to string
     }
 
     suspend fun makeAsyncRequestRaw(

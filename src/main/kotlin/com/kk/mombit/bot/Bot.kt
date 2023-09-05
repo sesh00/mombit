@@ -11,13 +11,17 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage
 import org.telegram.telegrambots.meta.api.objects.InputFile
 import org.telegram.telegrambots.meta.api.objects.Message
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow
+
+
 import java.io.File
 
 interface Bot {
@@ -74,13 +78,32 @@ interface Bot {
         }
     }
 
+
+    suspend fun deleteMessage(
+        messageId: Long,
+        chatId: Long,
+    ) {
+        val deleteMessage = DeleteMessage()
+        deleteMessage.messageId = messageId.toInt()
+        deleteMessage.chatId = chatId.toString()
+        try {
+            execute(deleteMessage)
+        } catch (e: Exception) {
+            println("#")
+            println("Ошибка при удалении сообщения.")
+            println(e.message)
+            println("#")
+        }
+    }
+
     suspend fun sendMessage(
         text: String,
         chatId: Long,
         markButtons: List<List<String>>? = null,
         inlineButtons: List<Pair<String, String>>? = null,
         shielded: Boolean = false,
-        oneTime: Boolean = false
+        oneTime: Boolean = false,
+        sendContact: Boolean = false
     ): Int? {
         // Приоритет обработки buttons: 1 -> mark, 2 -> inline
 
@@ -88,7 +111,7 @@ interface Bot {
         sendMessage.chatId = chatId.toString()
         sendMessage.text = if (shielded) text.telegramShielded().nonMarkdownShielded() else text.telegramShielded()
         sendMessage.parseMode = "MarkdownV2"
-        if (markButtons != null) sendMessage.replyMarkup = getReplyMarkup(markButtons, oneTime)
+        if (markButtons != null) sendMessage.replyMarkup = getReplyMarkup(markButtons, oneTime, sendContact)
         if (inlineButtons != null) sendMessage.replyMarkup = getReplyInlineKeyboard(inlineButtons)
         return GlobalScope.async {
             val id = try {
@@ -105,14 +128,23 @@ interface Bot {
         }.await()
     }
 
-    fun getReplyMarkup(allButtons: List<List<String>>, oneTime: Boolean = false): ReplyKeyboardMarkup {
+    fun getReplyMarkup(allButtons: List<List<String>>, oneTime: Boolean = false, sendContact:Boolean = false): ReplyKeyboardMarkup {
         val markup = ReplyKeyboardMarkup()
         markup.resizeKeyboard = true
         markup.oneTimeKeyboard = oneTime
+
+
         markup.keyboard = allButtons.map { rowButtons ->
             val row = KeyboardRow()
             rowButtons.forEach { rowButton -> row.add(rowButton) }
             row
+        }
+
+        if (sendContact) {
+            val k = KeyboardButton()
+            k.requestContact = true
+            k.text = "Поделиться номером"
+            markup.keyboard[0].add(k)
         }
         return markup
     }
