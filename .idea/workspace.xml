@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="588b1c5f-54c1-47b2-9d75-40574bc27de1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/MombitAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/MombitAPI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/Const.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/Const.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/Deal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/Deal.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/api/entity/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/bot/Bot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/bot/Bot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/bot/MomBot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/bot/MomBot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/user/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/user/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/user/UserService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/user/UserService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/utils/OkHttpUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/kk/mombit/utils/OkHttpUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Mombit_пользовательское_соглашение.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Code/LeetCode" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
@@ -127,6 +115,10 @@
       <workItem from="1687869432676" duration="25000" />
       <workItem from="1689330726807" duration="70000" />
       <workItem from="1693929193771" duration="718000" />
+      <workItem from="1693929928722" duration="1157000" />
+      <workItem from="1693943436188" duration="19000" />
+      <workItem from="1694117382795" duration="297000" />
+      <workItem from="1694350098691" duration="2000" />
     </task>
     <servers />
   </component>
